@@ -5,32 +5,34 @@ title: HTML Elements
 description: Learn how HTML elements combine opening tags, content, and closing tags to build a page.
 ---
 
-## Elements have meaning
+## What is an element?
 
-An HTML element describes one part of a page. Most elements have an opening tag, some content, and a closing tag. The browser uses the tag name to understand what that content means.
-
-This ordinary code fence stays a simple code sample:
+An HTML element describes one part of a page. Most elements have three parts: an opening tag, some content, and a closing tag. The browser uses the tag name to understand what the content is.
 
 ```html
 <p>A paragraph is an HTML element.</p>
 ```
 
+Here `<p>` is the opening tag, `A paragraph is an HTML element.` is the content, and `</p>` is the closing tag. The closing tag looks like the opening tag with a `/` added.
+
 ## Nest elements
 
-An element can contain other elements. In this example, the heading and paragraph are both inside `<main>`:
+An element can sit inside another element. This is called **nesting**. In the example below, the heading and the paragraph are both inside `<main>`.
 
-Some elements can sit inside others. Add `live` after the language to turn a fence into an editable example with a preview:
+Adding `live` after the language turns a code block into an editable example with a preview:
 
 ```html live
 <main>
   <h1>My little corner of the web</h1>
   <p>I'm learning how HTML elements fit together.</p>
-  <a href="https://example.com">A link to explore</a>
 </main>
 ```
 
-Try changing the heading or adding another paragraph. The preview updates as you type.
+Try changing the heading text. The preview updates as you type.
+
+> [!NOTE]
+> Always close the inner elements before closing the outer one. `<main>` opens first, so `</main>` comes last.
 
 ## Try it yourself
 
-Add a list inside `<main>`. Put two or three `<li>` elements inside a `<ul>` and see how the browser displays them.
+Inside `<main>`, add another `<p>` with a sentence about yourself. Check that it has both an opening and a closing tag.
