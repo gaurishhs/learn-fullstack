@@ -559,6 +559,69 @@ html::-webkit-scrollbar {
         margin: 0 0 11px
     }
 
+    /* Tailwind Preflight removes the browser's default list markers and table borders. */
+    .lesson-body-content ul,
+    .lesson-body-content ol {
+        margin: 0 0 1rem;
+        padding-left: 1.5rem;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .lesson-body-content ul {
+        list-style: disc;
+    }
+
+    .lesson-body-content ol {
+        list-style: decimal;
+    }
+
+    .lesson-body-content li {
+        padding-left: .15rem;
+    }
+
+    .lesson-body-content li + li {
+        margin-top: .25rem;
+    }
+
+    .lesson-body-content li > ul,
+    .lesson-body-content li > ol {
+        margin-top: .25rem;
+        margin-bottom: .25rem;
+    }
+
+    .lesson-body-content table {
+        width: 100%;
+        table-layout: fixed;
+        margin: 1rem 0 1.25rem;
+        border-collapse: collapse;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    .lesson-body-content th,
+    .lesson-body-content td {
+        padding: .55rem .75rem;
+        border: 1px solid var(--border);
+        text-align: left;
+        vertical-align: top;
+        overflow-wrap: anywhere;
+    }
+
+    .lesson-body-content td code,
+    .lesson-body-content th code {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .lesson-body-content th {
+        background: var(--soft);
+        color: var(--ink);
+        font-weight: 600;
+    }
+
     .lesson-body-content strong {
         color: var(--ink);
         font-weight: 600
