@@ -5,8 +5,6 @@ title: The DOM
 description: "Learn how JavaScript finds, changes, creates and reacts to things on your web page."
 ---
 
-## The DOM
-
 Until now, JavaScript has lived in the console. Boring, right? Nobody visits a website to stare at `console.log`.
 
 The **DOM** is how JavaScript reaches into your web page and moves things around: change text, add stuff, react to clicks, read what the user typed.

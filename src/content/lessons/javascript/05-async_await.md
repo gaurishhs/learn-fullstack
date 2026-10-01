@@ -5,8 +5,6 @@ title: Asynchronous JS, Async & Await
 description: "Learn what asynchronous code means, and how to use async and await to work with tasks that take time, like fetching data."
 ---
 
-## Understanding Asynchronous JavaScript
-
 So far, everything you've written has been **synchronous** — JavaScript runs your code line by line, top to bottom, waiting for each line to finish before moving to the next.
 
 Imagine ordering food at a fast-food counter. In a **synchronous** world, the cashier takes your order, then stands frozen at the register until your burger is cooked — everyone behind you waits forever.

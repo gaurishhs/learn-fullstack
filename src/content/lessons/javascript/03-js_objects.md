@@ -5,8 +5,6 @@ title: Understanding Objects
 description: "Learn how JavaScript objects store data as key-value pairs, and how to access, modify, and add methods to them."
 ---
 
-## Understanding Objects
-
 Objects are a common way to store data, but unlike arrays, they don't use numbered indexes — they use **keys** and **values**.
 
 ```javascript

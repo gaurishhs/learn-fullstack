@@ -5,8 +5,6 @@ title: JavaScript Core Basics
 description: "Your first JavaScript file: syntax, variables, if/else and loops."
 ---
 
-## JavaScript Core Basics
-
 Welcome to JavaScript! 🎉
 
 HTML builds the page, CSS styles it, and **JavaScript makes it do things**: react to clicks, check what you typed, load new data without refreshing.

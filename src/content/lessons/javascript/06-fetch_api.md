@@ -5,8 +5,6 @@ title: The Fetch API & Working with APIs
 description: "Learn what JSON is, what an API is, and how to use the Fetch API to get data from a server."
 ---
 
-## The Fetch API & Working with APIs
-
 Frontend is (almost) done — now we need to connect it to a backend. The **Fetch API** comes to the rescue, but first we need to understand JSON.
 
 ## What is JSON?

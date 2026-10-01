@@ -5,8 +5,6 @@ title: Arrays and Array Methods
 description: "Learn how arrays store lists of data, how indexing works, and how to use common array methods like forEach, map, and filter."
 ---
 
-## Arrays: the OG data structure
-
 When you build a project, you need a way to store data so it's easy to access and modify. One structure commonly used in JS is the **array**.
 
 An array is a single variable used to store a list of multiple items — think of it like a bookshelf where each slot is numbered.
