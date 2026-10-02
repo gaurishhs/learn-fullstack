@@ -1,0 +1,21 @@
+---
+import "../styles/livecode.css";
+---
+
+<main class="lc-explorer" data-livecode>
+	<div class="lc-workspace">
+		<aside class="lc-tree-panel" aria-label="Project files">
+			<div class="lc-pane-title"><div class="lc-root-label"><span class="lc-root-icon" aria-hidden="true">▰</span><span data-root-label>PROJECT FILES</span><span class="lc-tree-count" data-tree-count></span></div><button type="button" class="lc-refresh" data-refresh aria-label="Refresh project files" title="Refresh project files">↻</button></div>
+			<div class="lc-tree" data-tree aria-live="polite"><div class="lc-empty-tree"><span>⌁</span><strong>Connecting to LiveCode…</strong></div></div>
+		</aside>
+		<section class="lc-viewer" aria-label="Read-only file viewer">
+			<div class="lc-filebar"><span class="lc-file-icon">⌘</span><span data-file-path>No file selected</span><span class="lc-file-meta" data-file-meta></span></div>
+			<div class="lc-viewer-content"><div class="lc-viewer-empty" data-viewer-empty><span>{ }</span><strong>Select a file to view its contents</strong></div><div class="lc-code" data-code hidden></div></div>
+			<div class="lc-viewer-footer"><span data-viewer-message>Files are opened in read-only mode</span><span>READ ONLY</span></div>
+		</section>
+	</div>
+</main>
+
+<script>
+	import "../scripts/livecode";
+</script>

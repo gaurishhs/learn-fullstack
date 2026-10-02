@@ -1,0 +1,257 @@
+---
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+import LiveCodeApp from "../components/LiveCodeApp.astro";
+---
+
+<html lang="en">
+	<head>
+		<ClientRouter />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta
+			name="description"
+			content="Browse and read files from a LiveCode server."
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>LiveCode · OSDC</title>
+	</head>
+	<body class="livecode-page">
+		<header class="lc-topbar">
+			<a
+				class="brand flex items-center gap-2"
+				href="/"
+				aria-label="OSDC home"
+				><img
+					class="brand-logo h-14 w-20 object-cover"
+					src="/osdc_logo.png"
+					alt="OSDC"
+				/></a
+			>
+			<div class="lc-product"><span>LiveCode</span></div>
+			<div
+				class="lc-connection-state"
+				data-connection-status
+				data-state="connecting"
+				aria-live="polite"
+			>
+				<span class="lc-state-dot"></span><span class="lc-status-copy"
+					><strong data-status-label>Connecting</strong><small
+						data-status-detail>Checking LiveCode server…</small
+					></span>
+			</div>
+			<button
+				class="lc-theme"
+				data-theme-cycle
+				type="button"
+				aria-label="Change color theme"
+				><span aria-hidden="true">◐</span><span class="theme-label"
+					>System</span
+				></button
+			>
+		</header>
+		<LiveCodeApp />
+	</body>
+</html>
+
+<script>
+	import { initializeSite } from "../scripts/site";
+	initializeSite();
+</script>
+
+<style>
+	.livecode-page {
+		--lc-bg: #f6f7f8;
+		--lc-surface: #fff;
+		--lc-tree-bg: #fafbfc;
+		--lc-line: #e1e5e8;
+		--lc-line-soft: #e9edf0;
+		--lc-ink: #252b30;
+		--lc-text: #515b65;
+		--lc-muted: #899198;
+		--lc-hover: #f1f4f5;
+		--lc-select: #e6f2e9;
+		--lc-editor: #fff;
+		--lc-gutter: #f5f6f7;
+		--lc-gutter-ink: #9aa1a7;
+		min-height: 100vh;
+		background: var(--lc-bg);
+		color: var(--lc-ink);
+		font-family:
+			ui-sans-serif,
+			system-ui,
+			-apple-system,
+			"Segoe UI",
+			sans-serif;
+	}
+	:root[data-theme="dark"] .livecode-page {
+		--lc-bg: #111315;
+		--lc-surface: #191c1f;
+		--lc-tree-bg: #16191c;
+		--lc-line: #30363b;
+		--lc-line-soft: #292f34;
+		--lc-ink: #edf0f2;
+		--lc-text: #c0c7cc;
+		--lc-muted: #8d969d;
+		--lc-hover: #23282c;
+		--lc-select: #203629;
+		--lc-editor: #14181b;
+		--lc-gutter: #191e22;
+		--lc-gutter-ink: #707b83;
+	}
+	@media (prefers-color-scheme: dark) {
+		:root[data-theme="system"] .livecode-page {
+			--lc-bg: #111315;
+			--lc-surface: #191c1f;
+			--lc-tree-bg: #16191c;
+			--lc-line: #30363b;
+			--lc-line-soft: #292f34;
+			--lc-ink: #edf0f2;
+			--lc-text: #c0c7cc;
+			--lc-muted: #8d969d;
+			--lc-hover: #23282c;
+			--lc-select: #203629;
+			--lc-editor: #14181b;
+			--lc-gutter: #191e22;
+			--lc-gutter-ink: #707b83;
+		}
+	}
+	.lc-topbar {
+		position: sticky;
+		top: 0;
+		z-index: 5;
+		height: 64px;
+		display: flex;
+		align-items: center;
+		gap: 24px;
+		padding: 0 clamp(18px, 5vw, 72px);
+		border-bottom: 1px solid var(--lc-line);
+		background: var(--lc-surface);
+	}
+	.lc-brand {
+		display: grid;
+		place-items: center;
+		width: 65px;
+		height: 52px;
+		overflow: hidden;
+	}
+	.lc-brand img {
+		width: 64px;
+		height: 48px;
+		object-fit: cover;
+		filter: invert(1);
+	}
+	.lc-product {
+		display: flex;
+		align-items: center;
+		gap: 9px;
+		color: var(--lc-ink);
+		font-size: 15px;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+	}
+	.lc-brand-mark {
+		display: grid;
+		place-items: center;
+		width: 27px;
+		height: 27px;
+		border-radius: 8px;
+		background: #e8f5ec;
+		color: #267846;
+		font-size: 19px;
+	}
+	.lc-readonly {
+		padding: 3px 6px;
+		border: 1px solid #dce9df;
+		border-radius: 4px;
+		color: #438158;
+		font-size: 9px;
+		letter-spacing: 0.1em;
+	}
+	.lc-back {
+		margin-left: auto;
+		color: var(--lc-muted);
+		font-size: 13px;
+	}
+	.lc-back span {
+		margin-left: 5px;
+	}
+	.lc-connection-state {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-left: auto;
+		min-width: 215px;
+	}
+	.lc-theme {
+		display: flex;
+		align-items: center;
+		gap: 7px;
+		padding: 6px 9px;
+		border: 1px solid var(--lc-line);
+		border-radius: 6px;
+		background: var(--lc-surface);
+		color: var(--lc-muted);
+		font-size: 11px;
+		cursor: pointer;
+	}
+	.lc-state-dot {
+		flex: 0 0 9px;
+		height: 9px;
+		border-radius: 50%;
+		background: #d3a344;
+		box-shadow: 0 0 0 4px #d3a3441a;
+	}
+	.lc-status-copy {
+		display: grid;
+		gap: 1px;
+	}
+	.lc-status-copy strong {
+		color: var(--lc-text);
+		font-size: 11px;
+		font-weight: 650;
+	}
+	.lc-status-copy small {
+		max-width: 320px;
+		overflow: hidden;
+		color: var(--lc-muted);
+		font-size: 10px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	[data-connection-status][data-state="connected"] .lc-state-dot {
+		background: #42a163;
+		box-shadow: 0 0 0 4px #42a1631a;
+	}
+	[data-connection-status][data-state="reconnecting"] .lc-state-dot {
+		background: #d3a344;
+	}
+	[data-connection-status][data-state="error"] .lc-state-dot {
+		background: #d55f56;
+		box-shadow: 0 0 0 4px #d55f561a;
+	}
+	@media (max-width: 700px) {
+		.lc-topbar {
+			gap: 12px;
+			padding-inline: 14px;
+		}
+		.lc-brand {
+			width: 45px;
+		}
+		.lc-brand img {
+			width: 52px;
+		}
+		.lc-readonly,
+		.lc-back,
+		.lc-theme .theme-label {
+			display: none;
+		}
+		.lc-connection-state {
+			min-width: 0;
+			max-width: 55%;
+		}
+		.lc-status-copy small {
+			max-width: 180px;
+		}
+	}
+</style>
